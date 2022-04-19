@@ -1,14 +1,5 @@
-import 'dart:async';
 
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:staycurrent/util/analytics.dart';
-import 'package:staycurrent/util/api.dart';
-import 'package:staycurrent/util/data/data_member.dart';
-import 'package:staycurrent/util/exceptions.dart';
 
 class DataUser extends Equatable {
 
@@ -183,27 +174,27 @@ class DataUser extends Equatable {
         email: json['email'],
         firstName: json['first_name'],
         lastName: json['last_name'],
-        avatar: avatar,
-        admin: admin,
-        firebaseId: firebaseId,
-        hospitalAffiliation: hospitalAffiliation,
-        practiceFocus: practiceFocus,
-        position: position,
-        subspecialty: subspecialty,
-        traineeLevel: traineeLevel,
-        country: country,
-        privateMessage: privateMessage,
-        editorsPicks: editorsPicks,
-        editorsPicksPush: editorsPicksPush,
-        tags: tags,
-        tagsPush: tagsPush,
-        follows: follows,
-        followsPush: followsPush,
-        discussionComments: discussionComments,
-        discussionCommentsPush: discussionCommentsPush,
-        discussionsStarted: discussionsStarted,
-        followers: followers,
-        joinDate: joinDate)
+        avatar: json['avatar'],
+        admin: json['admin'],
+        firebaseId: 'firebaseId',
+        hospitalAffiliation: 'hospitalAffiliation',
+        practiceFocus: 'practiceFocus',
+        position: 'position',
+        subspecialty: 'subspecialty',
+        traineeLevel: 'traineeLevel',
+        country: 'country',
+        privateMessage: false,
+        editorsPicks: false,
+        editorsPicksPush: false,
+        tags: false,
+        tagsPush: false,
+        follows: false,
+        followsPush: false,
+        discussionComments: false,
+        discussionCommentsPush: false,
+        discussionsStarted: 0,
+        followers: 0,
+        joinDate: '');
   }
 
   bool get push =>
