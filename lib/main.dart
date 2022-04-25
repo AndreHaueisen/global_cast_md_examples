@@ -1,34 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:global_cast_md_examples/bloc/user_cubit.dart';
-import 'package:global_cast_md_examples/services/api_dio.dart';
-import 'package:global_cast_md_examples/services/api_service.dart';
-import 'package:global_cast_md_examples/services/user_service.dart';
+import 'package:global_cast_md_examples/app_config.dart';
 
-import 'bloc/media_cubit.dart';
-import 'screens/home_screen.dart';
+import 'app_root.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  runZonedGuarded(() async {
 
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => MediaCubit()),
-        BlocProvider(create: (_) => UserCubit(UserService(ApiService(ApiDio()))))
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const HomeScreen(),
-      ),
-    );
-  }
+    WidgetsFlutterBinding.ensureInitialized();
+
+    // Initialize Services
+    final appConfig = AppConfig()..initialize();
+
+    // Async initialization calls here
+
+    return runApp(AppRoot(appConfig: appConfig));
+  }, (error, stackTrace) {
+    // handle errors (Crashlytics, etc)
+  });
 }

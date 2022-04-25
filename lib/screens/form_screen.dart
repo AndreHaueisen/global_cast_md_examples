@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:global_cast_md_examples/bloc/form_cubit.dart' as ex;
 
 class FormScreen extends StatefulWidget {
+
+  static const String routeName = "form-screen-route";
+  static Future<void> pushRoute(BuildContext context) async {
+    Navigator.of(context).pushNamed(routeName);
+  }
   const FormScreen({Key? key}) : super(key: key);
 
   @override

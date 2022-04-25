@@ -197,13 +197,13 @@ class DataUser extends Equatable {
         joinDate: '');
   }
 
-  bool get push =>
-      (editorsPicksPush ?? false) && (tagsPush ?? false) &&
-          (followsPush ?? false) && (discussionCommentsPush ?? false);
-
-  bool get emailNotifications =>
-      (editorsPicks ?? false) && (tags ?? false) &&
-          (follows ?? false) && (discussionComments ?? false);
+  // bool get push =>
+  //     (editorsPicksPush ?? false) && (tagsPush ?? false) &&
+  //         (followsPush ?? false) && (discussionCommentsPush ?? false);
+  //
+  // bool get emailNotifications =>
+  //     (editorsPicks ?? false) && (tags ?? false) &&
+  //         (follows ?? false) && (discussionComments ?? false);
 
   // bool getNotificationSetting(String field, String method) {
   //   switch (field.toLowerCase()) {

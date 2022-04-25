@@ -5,6 +5,8 @@ import 'package:global_cast_md_examples/bloc/media_cubit.dart';
 import 'form_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  static const String routeName = "/";
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -16,11 +18,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              // context.read<MediaCubit>().loadMedia();
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const FormScreen()),
-              );
+              FormScreen.pushRoute(context);
             },
             child: const Text("call state change"),
           ),
